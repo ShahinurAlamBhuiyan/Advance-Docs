@@ -6,6 +6,7 @@ import { LiveblocksYjsProvider } from '@liveblocks/yjs'
 import { Button } from "./ui/button";
 import { MoonIcon, SunIcon } from "lucide-react";
 import BlockNote from "./BlockNote";
+import TranslateDocument from "../components/TranslateDocument"
 
 const Editor = () => {
     const room = useRoom();
@@ -38,6 +39,7 @@ const Editor = () => {
         <div className="max-w-6xl mx-auto">
             <div className="flex items-center justify-end gap-2 mb-10">
                 {/* TranslateDocument */}
+                <TranslateDocument doc={doc} />
 
                 {/* Chat document AI */}
 
