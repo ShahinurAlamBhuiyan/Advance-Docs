@@ -2,7 +2,6 @@
 import * as Y from 'yjs'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from './ui/dialog';
 import { Button } from './ui/button';
-import { Input } from './ui/input';
 import { useState, useTransition } from 'react';
 import {
     Select,
@@ -11,7 +10,9 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
-import { LanguagesIcon } from 'lucide-react';
+import { BotIcon, LanguagesIcon } from 'lucide-react';
+import { toast } from 'sonner';
+import MarkDown from 'react-markdown'
 
 
 type Language =
@@ -53,7 +54,27 @@ const TranslateDocument = ({ doc }: { doc: Y.Doc }) => {
         e.preventDefault();
 
         startTransition(async () => {
+            const documentData = doc.get("document-store").toJSON();
 
+            const res = await fetch(
+                `${process.env.NEXT_PUBLIC_BASE_URL}/translateDocument`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    documentData,
+                    targetLang: language,
+                }),
+            }
+            );
+
+            if (res.ok) {
+                const { translated_text } = await res.json();
+
+                setSummary(translated_text);
+                toast.success("Translated Summary Successfully!");
+            }
         })
     }
     return (
@@ -74,6 +95,19 @@ const TranslateDocument = ({ doc }: { doc: Y.Doc }) => {
                     <hr className='mt-5' />
                     {question && <p className='mt-5 text-gray-500'>Q: {question}</p>}
                 </DialogHeader>
+
+                {summary && (
+                    <div className='flex flex-col items-start max-h-96 overflow-y-scroll gap-2 p-5 bg-gray-100'>
+                        <div className='flex'>
+                            <BotIcon className='w-10 flex-shrink-0' />
+                            <p className='font-bold'>
+                                GPT {isPending ? "Thinking..." : <MarkDown>{summary}</MarkDown>}
+                            </p>
+                        </div>
+
+                    </div>
+                )}
+
                 <form className="flex gap-2" onSubmit={handleQuestion}>
                     <Select
                         value={language}
