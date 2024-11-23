@@ -6,7 +6,7 @@ import { useCreateBlockNote } from '@blocknote/react'
 import "@blocknote/core/fonts/inter.css"
 import "@blocknote/shadcn/style.css"
 import { useSelf } from '@liveblocks/react/suspense'
-import stringToColor from '@/lib/stringToColor'
+import stringToColor from '../lib/stringToColor'
 
 const BlockNote = ({ doc, provider, darkMode }: {
     doc: Y.Doc;

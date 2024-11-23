@@ -1,4 +1,4 @@
-import RoomProvider from "@/components/RoomProvider";
+import RoomProvider from "../../../components/RoomProvider";
 import { auth } from "@clerk/nextjs/server"
 import React from "react";
 

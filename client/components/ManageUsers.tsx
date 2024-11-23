@@ -2,26 +2,22 @@
 
 import {
     Dialog,
-    DialogClose,
     DialogContent,
     DialogDescription,
-    DialogFooter,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import { FormEvent, useState, useTransition } from "react"
+import { useState, useTransition } from "react"
 import { Button } from "./ui/button";
-import { usePathname, useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { Input } from "./ui/input";
-import { inviteUserToDocument, removeUserFromDocument } from "@/actions/actions";
+import { removeUserFromDocument } from "../actions/actions";
 import { useUser } from "@clerk/nextjs";
-import useOwner from "@/lib/useOwner";
+import useOwner from "../lib/useOwner";
 import { useRoom } from "@liveblocks/react/suspense";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { collectionGroup, query, where } from "firebase/firestore";
-import { db } from "@/firebase";
+import { db } from "../firebase";
 
 
 

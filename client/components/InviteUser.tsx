@@ -2,10 +2,8 @@
 
 import {
     Dialog,
-    DialogClose,
     DialogContent,
     DialogDescription,
-    DialogFooter,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
@@ -15,7 +13,7 @@ import { Button } from "./ui/button";
 import { usePathname, useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Input } from "./ui/input";
-import { inviteUserToDocument } from "@/actions/actions";
+import { inviteUserToDocument } from "../actions/actions";
 
 
 

@@ -2,10 +2,8 @@
 import * as Y from 'yjs'
 import {
     Dialog,
-    DialogClose,
     DialogContent,
     DialogDescription,
-    DialogFooter,
     DialogHeader,
     DialogTitle,
     DialogTrigger,
@@ -14,7 +12,6 @@ import { FormEvent, useState, useTransition } from "react"
 import { Button } from "./ui/button";
 import { toast } from "sonner";
 import { Input } from "./ui/input";
-import { inviteUserToDocument } from "@/actions/actions";
 import { BotIcon, MessageCircleCode } from 'lucide-react';
 import Markdown from 'react-markdown';
 

@@ -1,5 +1,5 @@
 'use client'
-import { db } from "@/firebase"
+import { db } from "../firebase"
 import { doc } from "firebase/firestore"
 import Link from "next/link"
 import { usePathname } from "next/navigation"

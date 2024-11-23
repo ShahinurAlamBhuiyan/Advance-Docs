@@ -1,4 +1,4 @@
-import stringToColor from '@/lib/stringToColor';
+import stringToColor from '../lib/stringToColor';
 import { motion } from 'framer-motion'
 
 const FollowPointer = ({

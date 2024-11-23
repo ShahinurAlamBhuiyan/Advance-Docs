@@ -1,6 +1,6 @@
 'use client'
 
-import Document from "@/components/Document";
+import Document from "../../../components/Document";
 
 const DocumentPage = ({ params: { id } }: {
     params: {
