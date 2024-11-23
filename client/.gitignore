@@ -12,6 +12,7 @@
 
 # enviroment variables
 .env.local
+service_key.json
 
 # testing
 /coverage
