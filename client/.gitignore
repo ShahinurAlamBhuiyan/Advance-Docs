@@ -13,7 +13,6 @@
 # enviroment variables
 .env.local
 service_key.json
-firebase.ts
 
 # testing
 /coverage
